@@ -51,7 +51,7 @@ void tm1637_set_brightness(tm1637_led_t * led, uint8_t level);
  * @param num Number to set (0x00..0x0F, 0xFF for clear)
  * @param dot Display dot of this segment
  */
-void tm1637_set_segment_number(tm1637_led_t * led, const uint8_t segment_idx, const uint8_t num, const bool dot);
+// void tm1637_set_segment_number(tm1637_led_t * led, const uint8_t segment_idx, const uint8_t num, const bool dot);
 
 /**
  * @brief Set one-segment raw segment data
@@ -74,7 +74,7 @@ void tm1637_set_number(tm1637_led_t * led, uint16_t number);
  * @param number Display number (0...9999)
  * @param lead_zero Display leading zero(s)
  */
-void tm1637_set_number_lead(tm1637_led_t * led, uint16_t number, const bool lead_zero);
+// void tm1637_set_number_lead(tm1637_led_t * led, uint16_t number, const bool lead_zero);
 
 /**
  * @brief Set full display number, in decimal encoding + control leading zero + control dot display
@@ -83,7 +83,7 @@ void tm1637_set_number_lead(tm1637_led_t * led, uint16_t number, const bool lead
  * @param lead_zero Display leading zero(s)
  * @param dot_mask Dot mask, bits left-to-right
  */
-void tm1637_set_number_lead_dot(tm1637_led_t * led, uint16_t number, const bool lead_zero, const uint8_t dot_mask);
+// void tm1637_set_number_lead_dot(tm1637_led_t * led, uint16_t number, const bool lead_zero, const uint8_t dot_mask);
 
 /**
  * @brief Set floating point number, correctly handling negative numbers

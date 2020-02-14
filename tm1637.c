@@ -155,42 +155,42 @@ void tm1637_set_segment_raw(tm1637_led_t * led, const uint8_t segment_idx, const
     tm1637_stop(led);
 }
 
-void tm1637_set_number(tm1637_led_t * led, uint16_t number)
-{
-    tm1637_set_number_lead_dot(led, number, false, 0x00);
-}
+// void tm1637_set_number(tm1637_led_t * led, uint16_t number)
+// {
+//     tm1637_set_number_lead_dot(led, number, false, 0x00);
+// }
 
-void tm1637_set_number_lead(tm1637_led_t * led, uint16_t number, const bool lead_zero)
-{
-    tm1637_set_number_lead_dot(led, number, lead_zero, 0x00);
-}
+// void tm1637_set_number_lead(tm1637_led_t * led, uint16_t number, const bool lead_zero)
+// {
+//     tm1637_set_number_lead_dot(led, number, lead_zero, 0x00);
+// }
 
-void tm1637_set_number_lead_dot(tm1637_led_t * led, uint16_t number, bool lead_zero, const uint8_t dot_mask)
-{
-    uint8_t lead_number = lead_zero ? 0xFF : tm1637_symbols[0];
+// void tm1637_set_number_lead_dot(tm1637_led_t * led, uint16_t number, bool lead_zero, const uint8_t dot_mask)
+// {
+//     uint8_t lead_number = lead_zero ? 0xFF : tm1637_symbols[0];
 
-    if (number < 10) {
-        tm1637_set_segment_number(led, 3, number, dot_mask & 0x01);
-        tm1637_set_segment_number(led, 2, lead_number, dot_mask & 0x02);
-        tm1637_set_segment_number(led, 1, lead_number, dot_mask & 0x04);
-        tm1637_set_segment_number(led, 0, lead_number, dot_mask & 0x08);
-    } else if (number < 100) {
-        tm1637_set_segment_number(led, 3, number % 10, dot_mask & 0x01);
-        tm1637_set_segment_number(led, 2, (number / 10) % 10, dot_mask & 0x02);
-        tm1637_set_segment_number(led, 1, lead_number, dot_mask & 0x04);
-        tm1637_set_segment_number(led, 0, lead_number, dot_mask & 0x08);
-    } else if (number < 1000) {
-        tm1637_set_segment_number(led, 3, number % 10, dot_mask & 0x01);
-        tm1637_set_segment_number(led, 2, (number / 10) % 10, dot_mask & 0x02);
-        tm1637_set_segment_number(led, 1, (number / 100) % 10, dot_mask & 0x04);
-        tm1637_set_segment_number(led, 0, lead_number, dot_mask & 0x08);
-    } else {
-        tm1637_set_segment_number(led, 3, number % 10, dot_mask & 0x01);
-        tm1637_set_segment_number(led, 2, (number / 10) % 10, dot_mask & 0x02);
-        tm1637_set_segment_number(led, 1, (number / 100) % 10, dot_mask & 0x04);
-        tm1637_set_segment_number(led, 0, (number / 1000) % 10, dot_mask & 0x08);
-    }
-}
+//     if (number < 10) {
+//         tm1637_set_segment_number(led, 3, number, dot_mask & 0x01);
+//         tm1637_set_segment_number(led, 2, lead_number, dot_mask & 0x02);
+//         tm1637_set_segment_number(led, 1, lead_number, dot_mask & 0x04);
+//         tm1637_set_segment_number(led, 0, lead_number, dot_mask & 0x08);
+//     } else if (number < 100) {
+//         tm1637_set_segment_number(led, 3, number % 10, dot_mask & 0x01);
+//         tm1637_set_segment_number(led, 2, (number / 10) % 10, dot_mask & 0x02);
+//         tm1637_set_segment_number(led, 1, lead_number, dot_mask & 0x04);
+//         tm1637_set_segment_number(led, 0, lead_number, dot_mask & 0x08);
+//     } else if (number < 1000) {
+//         tm1637_set_segment_number(led, 3, number % 10, dot_mask & 0x01);
+//         tm1637_set_segment_number(led, 2, (number / 10) % 10, dot_mask & 0x02);
+//         tm1637_set_segment_number(led, 1, (number / 100) % 10, dot_mask & 0x04);
+//         tm1637_set_segment_number(led, 0, lead_number, dot_mask & 0x08);
+//     } else {
+//         tm1637_set_segment_number(led, 3, number % 10, dot_mask & 0x01);
+//         tm1637_set_segment_number(led, 2, (number / 10) % 10, dot_mask & 0x02);
+//         tm1637_set_segment_number(led, 1, (number / 100) % 10, dot_mask & 0x04);
+//         tm1637_set_segment_number(led, 0, (number / 1000) % 10, dot_mask & 0x08);
+//     }
+// }
 
 void tm1637_set_float(tm1637_led_t * led, float n) {
     if( n < 0 ) {
