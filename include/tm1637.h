@@ -25,7 +25,7 @@ struct tm;
 
 typedef struct {
 	gpio_num_t m_pin_clk;
-	gpio_num_t m_pin_dta;
+	gpio_num_t m_pin_dio;
 	uint8_t m_brightness;
 } tm1637_led_t;
 
@@ -33,10 +33,10 @@ typedef struct {
  * @brief Constructs new LED TM1637 object
  *
  * @param pin_clk GPIO pin for CLK input of LED module
- * @param pin_data GPIO pin for DIO input of LED module
+ * @param pin_dio GPIO pin for DIO input of LED module
  * @return
  */
-tm1637_led_t * tm1637_init(gpio_num_t pin_clk, gpio_num_t pin_data);
+tm1637_led_t * tm1637_init(gpio_num_t pin_clk, gpio_num_t pin_dio);
 
 /**
  * @brief Set brightness level. Note - will be set after next display render
